@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { itemBackground, gray } from '../../styles/colors';
+import { itemBackground, gray, green } from '../../styles/colors';
 
 export default StyleSheet.create({
     container: {
@@ -28,7 +28,8 @@ export default StyleSheet.create({
     arrow: {
         position: 'absolute',
         right: 20,
-        top: 30
+        top: 30,
+        color: green
 
     },
 });
