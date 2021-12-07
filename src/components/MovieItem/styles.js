@@ -3,7 +3,7 @@ import { itemBackground, background, navigationBackground } from '../../styles/c
 export default StyleSheet.create({
     container: {
         backgroundColor: itemBackground,
-        borderRadius: 20,
+        borderRadius: 10,
         padding: 20,
         flexDirection: 'row',
         marginBottom: 20,

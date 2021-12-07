@@ -1,15 +1,34 @@
 import React from 'react';
-import { StyleSheet, View, Button} from 'react-native';
-import Spinner from '../../components/Spinner/Spinner';
-import Cinemalist from '../../components/cinemalist/cinemalist';
+import { View, FlatList, TouchableOpacity} from 'react-native';
+
+import CinemalistItem from '../../components/CinemaListItem/CinemaListItem';
+
+import styles from './styles';
+
 export default function Cinemas({navigation}) {
-    var x = [{name:'Smárabío', link:'www.smarabio.is'}, {name:'eitthvað bíó', link:'www.eitthvad.is'},{name:'Smárabío', link:'www.smarabio.is'}, {name:'eitthvað bíó', link:'www.eitthvad.is'},{name:'Smárabío', link:'www.smarabio.is'}, {name:'eitthvað bíó', link:'www.eitthvad.is'},{name:'Smárabío', link:'www.smarabio.is'}, {name:'eitthvað bíó', link:'www.eitthvad.is'}];
+    var x = [{name:'Smárabío', link:'www.smarabio.is', id:1}, {name:'eitthvað bíó', link:'www.eitthvad.is', id:2}];
     return (
         <View>
-            <Button title="check out cinema modal" onPress={() => navigation.navigate('Cinema')}/>
-            <Cinemalist array={x} />
+            <FlatList style={styles.list}
+        
+                data={x}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => {
+                    return (
+                        <TouchableOpacity
+                            onPress={() => {navigation.navigate("Cinema")}}
+                        >
+
+                            <CinemalistItem
+                                name={item.name}
+                                link={item.link}
+                            />
+                        </TouchableOpacity>
+
+                    );
+                }}
+            />
         </View>
     );
 }
 
-const styles = StyleSheet.create({});

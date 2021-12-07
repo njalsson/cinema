@@ -1,5 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
+import { green } from '../../styles/colors';
 import styles from './styles';
 
 import MoviePoster from '../MoviePoster/MoviePoster';
@@ -17,6 +19,7 @@ export default function MovieItem() {
                     <Genre genre="Action" />
                 </View>
             </View>
+            <AntDesign name="right" size={36} color={green} style={{alignSelf: 'center'}}/>
         </View>
     );
 }
