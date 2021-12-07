@@ -45,7 +45,7 @@ export default function AppContainer() {
                         } else if (route.name === 'Upcoming'){
                             iconName = 'movie-filter';
                         }
-                        return <MaterialIcons name={iconName} size={34} color={color}/>
+                        return <MaterialIcons name={iconName} size={34} color={color}/>;
                     },
                     tabBarActiveTintColor: green,
                     tabBarInactiveTintColor: gray,
