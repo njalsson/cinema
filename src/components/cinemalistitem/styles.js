@@ -17,13 +17,13 @@ export default StyleSheet.create({
         marginLeft: 20,
         marginTop: 10,
         color: 'white',
-        fontSize:20
+        fontSize:25
     },
     cinemaLink: {
         marginLeft: 30,
         marginTop: 10,
         color: gray,
-        fontSize:15
+        fontSize:18
     },
     arrow: {
         position: 'absolute',
