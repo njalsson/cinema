@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import Spinner from '../../components/Spinner/Spinner';
 export default function Cinemas({navigation}) {
     return (
-        <Spinner />
+        <Button title="check out cinema modal" onPress={() => navigation.navigate('Cinema')}/>
     );
 }
 

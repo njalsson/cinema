@@ -1,23 +1,22 @@
 import React from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialIcons } from '@expo/vector-icons'; 
-
+import { AntDesign } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native';
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
-import Cinemas from '../views/Cinemas/Cinemas';
-import Upcoming from '../views/Upcoming/Upcoming';
+import { navigationBackground, background, gray } from '../styles/colors';
 
-import { navigationBackground, background, gray, green } from '../styles/colors';
+import TabContainer from './TabContainer';
+import Cinema from '../views/Cinema/Cinema';
+
 const DarkTheme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
         background: background,
         text: 'white',
-        border: 'black',
+        border: navigationBackground,
         card: navigationBackground,
         primary: gray,
     }
@@ -28,40 +27,33 @@ export default function AppContainer() {
 
     return (
         <NavigationContainer theme={DarkTheme}>
-            <Tab.Navigator
-                initialRouteName="Cinemas"
-                screenOptions={({ route }) => ({
+            <Stack.Navigator
+                screenOptions={({ navigation }) => ({
+                    headerLeft: () => (
+                        <TouchableOpacity
+                            onPress={() => navigation.goBack()}
+                        >
+                            <AntDesign name="left" size={36} color={gray} />
+                        </TouchableOpacity>
+                    ),
                     headerTitleStyle: {
                         fontWeight: 'bold',
                         fontSize: 24,
                     },
-                    tabBarIcon: ({ focused, size }) => {
-                        let iconName;
-                        const color = focused ? green : gray;
-                        
-                        if (route.name === 'Cinemas') {
-                            iconName = 'theaters';
-                            
-                        } else if (route.name === 'Upcoming'){
-                            iconName = 'movie-filter';
-                        }
-                        return <MaterialIcons name={iconName} size={34} color={color}/>
-                    },
-                    tabBarActiveTintColor: green,
-                    tabBarInactiveTintColor: gray,
-                    tabBarStyle: {
-                        height: 100,
-                        padding: 20,
-                    },
-                    tabBarLabelStyle: {
-                        fontSize: 14,
-                    },
-
                 })}
             >
-                <Tab.Screen name="Cinemas" component={Cinemas}/>
-                <Tab.Screen name="Upcoming" component={Upcoming} />
-            </Tab.Navigator>
+                <Stack.Group>
+                    <Stack.Screen
+                        name="Tabs"
+                        component={TabContainer}
+                        options={{ headerShown: false}}
+                    />
+                </Stack.Group>
+                <Stack.Group screenOptions={{presentation: 'modal'}}>
+                    <Stack.Screen name="Cinema" component={Cinema}/>
+                </Stack.Group>
+            </Stack.Navigator>
+            
         </NavigationContainer>
     );
 }
