@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, ScrollView, View} from 'react-native';
+import { StyleSheet, Text, ScrollView, View, Linking, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import MovieItem from '../../components/MovieItem/MovieItem';
 import { gray } from '../../styles/colors';
@@ -19,7 +19,7 @@ const TextItem = ({label, children}) => {
 
 export default function Cinema({navigation}) {
     useEffect(() => {
-        navigation.setOptions({title: 'Smárbío'});
+        navigation.setOptions({title: 'Smárabío'});
     }, []);
     return (
         <ScrollView bounces={false}>
@@ -28,13 +28,19 @@ export default function Cinema({navigation}) {
                     <Text style={styles.text}>Some long and descriptive description about the selected cinema</Text>
                 </TextItem>
                 <TextItem label="address:">
-                    <Text style={styles.text}>Hagasmára 1, 201 Kópavogi</Text>
+                    <TouchableOpacity onPress={() => {Linking.openURL('https://g.page/smarabiomax?share');}}>
+                        <Text style={styles.text}>Hagasmára 1, 201 Kópavogi</Text>
+                    </TouchableOpacity>
                 </TextItem>
                 <TextItem label="website:">
-                    <Text style={[styles.text, styles.link]}>https://www.smarabio.is/</Text>
+                    <TouchableOpacity onPress={() => {Linking.openURL('https://www.smarabio.is/');}}>
+                        <Text style={[styles.text, styles.link]}>https://www.smarabio.is/</Text>
+                    </TouchableOpacity>
                 </TextItem>
                 <TextItem label="phone:">
-                    <Text style={[styles.text, styles.link]}>564 0000</Text>
+                    <TouchableOpacity onPress={() => {Linking.openURL('tel://5640000');}}>
+                        <Text style={[styles.text, styles.link]}>564 0000</Text>
+                    </TouchableOpacity>
                 </TextItem>
             </View>
 
