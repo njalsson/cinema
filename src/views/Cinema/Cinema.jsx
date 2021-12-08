@@ -46,12 +46,9 @@ export default function Cinema({navigation}) {
 
             <View style={styles.movies}>
                 <Text style={[styles.text, {color: gray}]}>In cinema:</Text>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("CinemaMovie")}
-                >
+
                 
-                    <MovieItem/>
-                </TouchableOpacity>
+                <MovieItem onPress={() => navigation.navigate('CinemaMovie')}/>
             </View>
         </ScrollView>
     );
