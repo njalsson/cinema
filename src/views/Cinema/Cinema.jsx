@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, ScrollView, View} from 'react-native';
+import { TouchableOpacity, Text, ScrollView, View} from 'react-native';
 import styles from './styles';
 import MovieItem from '../../components/MovieItem/MovieItem';
 import { gray } from '../../styles/colors';
@@ -40,11 +40,12 @@ export default function Cinema({navigation}) {
 
             <View style={styles.movies}>
                 <Text style={[styles.text, {color: gray}]}>In cinema:</Text>
-                <MovieItem></MovieItem>
-                <MovieItem></MovieItem>
-                <MovieItem></MovieItem>
-                <MovieItem></MovieItem>
-
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("CinemaMovie")}
+                >
+                
+                    <MovieItem/>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     );

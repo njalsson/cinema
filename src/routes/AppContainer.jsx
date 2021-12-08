@@ -9,6 +9,7 @@ import { navigationBackground, background, gray } from '../styles/colors';
 
 import TabContainer from './TabContainer';
 import Cinema from '../views/Cinema/Cinema';
+import CinemaMovie from '../views/CinemaMovie/CinemaMovie';
 
 const DarkTheme = {
     ...DefaultTheme,
@@ -50,6 +51,17 @@ export default function AppContainer() {
                     />
                 </Stack.Group>
                 <Stack.Group screenOptions={{presentation: 'modal'}}>
+                    <Stack.Screen
+                        name="CinemaMovie"
+                        component={CinemaMovie}
+                        options={{
+                            headerStyle: {
+                                backgroundColor: background,
+                                shadowColor: 'transparent',
+                            },
+                           
+                        }}
+                    />
                     <Stack.Screen name="Cinema" component={Cinema}/>
                 </Stack.Group>
             </Stack.Navigator>

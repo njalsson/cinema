@@ -5,7 +5,7 @@ export default function MoviePoster({uri, size}) {
     return (
 
         <Image
-            style={styles.image}
+            style={size === 'large' ? [styles.image, {height: 300}] : styles.image}
             source={{uri: uri}}
             resizeMode='stretch'
         />
@@ -19,6 +19,5 @@ const styles = StyleSheet.create({
         height: 150,
         borderRadius: 10,
         aspectRatio: 2/3,
-        backgroundColor: 'blue'
     }
 });

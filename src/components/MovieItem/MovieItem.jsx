@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { green } from '../../styles/colors';
 import styles from './styles';
@@ -8,6 +8,8 @@ import MoviePoster from '../MoviePoster/MoviePoster';
 import Genre from '../Genre/Genre';
 export default function MovieItem() {
     return (
+
+
         <View style={styles.container}>
             <MoviePoster uri="https://m.media-amazon.com/images/I/A1T+lZ6iUZL._SL1500_.jpg" />
             <View style={styles.subcontainer}>
@@ -19,7 +21,7 @@ export default function MovieItem() {
                     <Genre genre="Action" />
                 </View>
             </View>
-            <AntDesign name="right" size={36} color={green} style={{alignSelf: 'center'}}/>
+            <AntDesign name="right" size={36} color={green} style={{position: 'absolute', top: 20, right: 20,}}/>
         </View>
     );
 }

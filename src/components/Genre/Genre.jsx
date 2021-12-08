@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 30,
         padding: 5,
-        paddingRight: 10,
-        paddingLeft: 10,
+        paddingRight: 15,
+        paddingLeft: 15,
         marginBottom: 5,
         marginRight: 5,
         backgroundColor: navigationBackground,
