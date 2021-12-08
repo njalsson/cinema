@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, TouchableOpacity} from 'react-native';
 
-import CinemalistItem from '../../components/CinemaListItem/CinemaListItem';
+import CinemalistItem from '../../components/cinemalistitem/cinemalistItem';
 import styles from './styles';
 
 export default function Cinemas({navigation}) {
