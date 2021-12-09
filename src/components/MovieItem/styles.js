@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { itemBackground, background, navigationBackground } from '../../styles/colors';
+import { itemBackground } from '../../styles/colors';
 export default StyleSheet.create({
     container: {
         backgroundColor: itemBackground,
@@ -29,5 +29,4 @@ export default StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'flex-start'
     },
-
 });
