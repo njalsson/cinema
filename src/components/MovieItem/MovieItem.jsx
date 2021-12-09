@@ -3,14 +3,16 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { green } from '../../styles/colors';
 import styles from './styles';
-import imdblogo from './imdb.png';
+import imdblogo from '../../resources/Images/imdb.png';
 
 import MoviePoster from '../MoviePoster/MoviePoster';
 import Genre from '../Genre/Genre';
+import ImdbRating from '../ImdbRating/ImdbRating';
+
 export default function MovieItem({onPress, movie}) {
     const {poster, title, year, genres, } = movie;
     const releaseDate = movie['release-dateIS'];
-    const upcoming = movie.hasOwnProperty('ratings');
+    const rating = movie.hasOwnProperty('ratings');
 
     return (
 
@@ -24,6 +26,10 @@ export default function MovieItem({onPress, movie}) {
                     <View style={styles.subcontainer}>
                         <Text style={styles.text}>{title}</Text>
                         <Text style={[styles.text, {fontSize: 16}]}>{releaseDate ? releaseDate : year}</Text>
+                        {/* if a movie is in the upcoming tab and has no rating on imdb, don't return the imdb score */}
+                        {rating ?   
+                            <ImdbRating rating={movie.ratings.imdb} />: <></>
+                        }
                     </View>
 
                 </View>
@@ -37,14 +43,7 @@ export default function MovieItem({onPress, movie}) {
 
                 </View>
                 <AntDesign name="right" size={36} color={green} style={{position: 'absolute', top: 20, right: 10,}}/>
-                {/* if a movie is in the upcoming tab and has no rating on imdb, don't return the imdb score */}
-                {upcoming ?   
-                    <View style={styles.ratingbox}>
-                        <Image source={imdblogo} style={styles.imdbimage} />
-                        <Text style={styles.imdbrating}>{movie.ratings.imdb}
-                        </Text>
-                    </View> : <View />
-                }
+
             </View>
             
         </TouchableOpacity>
