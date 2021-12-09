@@ -1,5 +1,7 @@
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { Text, View, } from 'react-native';
+import { Text, View, TouchableOpacity, Linking } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import Ticket from '../../components/Ticket/Ticket';
@@ -20,10 +22,11 @@ export default function CinemaMovie({navigation}) {
             title: movie.title,
             headerRight: () => {
                 return (
-                    rating ? 
+                    rating && movie.ids.imdb ? 
                         <View style={{marginRight: 8}}>
-
-                            <ImdbRating rating={movie.ratings.imdb}/>
+                            <TouchableOpacity onPress={() => {Linking.openURL('https://imdb.com/title/tt' + movie.ids.imdb);}}>
+                                <ImdbRating rating={movie.ratings.imdb}/>
+                            </TouchableOpacity>
                         </View>
                         : <></>
                 );

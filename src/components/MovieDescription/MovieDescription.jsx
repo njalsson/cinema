@@ -40,8 +40,8 @@ export default function MovieDescription({realeaseLabel, movie}) {
             {actorsarray.length > 0 ?
                 <Text style={[styles.text,]}>Lead actors: {movieactors}</Text> : <></>}
             {certificate ?
-            <View style={{flexDirection:'row'}}><Text style={styles.text}>Age restriction: </Text>
-                <Text style={[styles.text,{color:certificate.color}]}> {certificate.is}</Text> 
+                <View style={{flexDirection:'row'}}><Text style={styles.text}>Age restriction: </Text>
+                    <Text style={[styles.text,{color:certificate.color}]}> {certificate.is}</Text> 
                 </View>
                 :
                 <></> }
