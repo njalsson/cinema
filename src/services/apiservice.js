@@ -24,8 +24,14 @@
 		}
 		
 
-		async function getMovies(token){
+		async function getMovies(token, title = "None"){
+			if(title == "None"){
 			let url = 'https://api.kvikmyndir.is/movies';
+
+			}
+			else{
+				let url = 'https://api.kvikmyndir.is/movies?title='+title;
+			}
 			let response = await fetch(url,{
 				method: "GET",
 				headers:{
@@ -69,8 +75,12 @@
 
 		}
 
-		async function getUpcoming(token){
-			let url = 'https://api.kvikmyndir.is/upcoming';
+		async function getUpcoming(token, title = "None"){
+			if(title == "None"){
+				let url = 'https://api.kvikmyndir.is/upcoming';
+			}else{
+				let url = 'https://api.kvikmyndir.is/upcoming?title='+title;
+			}
 			let response = await fetch(url,{
 				method: "GET",
 				headers:{
