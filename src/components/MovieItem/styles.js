@@ -26,5 +26,28 @@ export default StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'flex-start'
+    },
+    ratingbox: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        flex: 1,
+        alignContent: 'center',
+        alignItems: 'flex-start',
+        backgroundColor: '#e6b91e',
+        width: 100,
+        borderRadius: 24,
+    },
+    imdbrating: {
+        fontWeight: 'bold',
+        flex: 1,
+        marginLeft: 25,
+        marginTop: 2
+    },
+    imdbimage: {
+        flex: 1,
+        height: 20,
+        width: 20,
+        borderRadius: 50,
     }
 });

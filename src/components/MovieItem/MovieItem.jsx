@@ -1,14 +1,16 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { green } from '../../styles/colors';
 import styles from './styles';
+import imdblogo from './imdb.png';
 
 import MoviePoster from '../MoviePoster/MoviePoster';
 import Genre from '../Genre/Genre';
 export default function MovieItem({onPress, movie}) {
     const {poster, title, year, genres, } = movie;
-    const releaseDate = movie["release-dateIS"];
+    const releaseDate = movie['release-dateIS'];
+    const upcoming = movie.hasOwnProperty('ratings');
 
     return (
 
@@ -35,8 +37,16 @@ export default function MovieItem({onPress, movie}) {
 
                 </View>
                 <AntDesign name="right" size={36} color={green} style={{position: 'absolute', top: 20, right: 10,}}/>
+                {/* if a movie is in the upcoming tab and has no rating on imdb, don't return the imdb score */}
+                {upcoming ?   
+                    <View style={styles.ratingbox}>
+                        <Image source={imdblogo} style={styles.imdbimage} />
+                        <Text style={styles.imdbrating}>{movie.ratings.imdb}
+                        </Text>
+                    </View> : <View />
+                }
             </View>
-
+            
         </TouchableOpacity>
     );
 }
