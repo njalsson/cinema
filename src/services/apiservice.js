@@ -46,7 +46,51 @@
 
 
 		}
+		async function getPoster(token, imdbid){
+			let url = 'https://api.kvikmyndir.is/images?'+imdbid;
+			let response = await fetch(url,{
+				method: "GET",
+				headers:{
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'x-access-token': token
+				}
+			})
+			if (response.ok) { // if HTTP-status is 200-299
+			  let json = await response.json();
+			  console.log(json);
+			  return json;
+			} else {
+			 
+			  alert("HTTP-Error: " + response.status);
+			}
+			return response.token;
 
+
+		}
+
+		async function getUpcoming(token){
+			let url = 'https://api.kvikmyndir.is/upcoming';
+			let response = await fetch(url,{
+				method: "GET",
+				headers:{
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'x-access-token': token
+				}
+			})
+			if (response.ok) { // if HTTP-status is 200-299
+			  let json = await response.json();
+			  console.log(json);
+			  return json;
+			} else {
+			 
+			  alert("HTTP-Error: " + response.status);
+			}
+			return response.token;
+
+
+		}
 		async function getCinemas(token){
 			let url = 'https://api.kvikmyndir.is/theaters';
 			let response = await fetch(url,{
@@ -103,6 +147,7 @@
 			movies = getMovies(token);
 			getCinemas(token);
 			getGenres(token);
+			getUpcoming(token);
 
 		})();
 
