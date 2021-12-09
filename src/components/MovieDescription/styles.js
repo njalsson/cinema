@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { gray, itemBackground, background } from '../../styles/colors';
+import { gray, background } from '../../styles/colors';
 export default StyleSheet.create({
     container: {
         marginTop: 20,
@@ -17,4 +17,4 @@ export default StyleSheet.create({
         flexWrap: 'wrap',
         flexDirection: 'row'
     }
-})
+});

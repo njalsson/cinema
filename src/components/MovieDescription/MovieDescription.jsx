@@ -35,14 +35,16 @@ export default function MovieDescription({realeaseLabel, movie}) {
                 <Text style={[styles.text,]}>Duration: {durationMinutes} minutes</Text>
                 : <></>
             }
-            {certificate ?
-                <Text style={[styles.text,{color:certificate.color}]}>age restriction: {certificate.is}</Text> 
-                :
-                <></>}
             {directorsarray.length > 0 ?
                 <Text style={[styles.text,]}>director: {moviedirectors}</Text> : <></>}
             {actorsarray.length > 0 ?
                 <Text style={[styles.text,]}>Lead actors: {movieactors}</Text> : <></>}
+            {certificate ?
+            <View style={{flexDirection:'row'}}><Text style={styles.text}>Age restriction: </Text>
+                <Text style={[styles.text,{color:certificate.color}]}> {certificate.is}</Text> 
+                </View>
+                :
+                <></> }
             <View style={styles.genreContainer}>
                 {genres.map(genre => {
                     if (typeof genre === 'object') {
