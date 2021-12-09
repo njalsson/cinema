@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { itemBackground, background, navigationBackground } from '../../styles/colors';
+import { itemBackground } from '../../styles/colors';
 export default StyleSheet.create({
     container: {
         backgroundColor: itemBackground,
@@ -28,6 +28,10 @@ export default StyleSheet.create({
         justifyContent: 'flex-start'
     },
     ratingbox: {
+        paddingTop: 2,
+        paddingBottom: 2,
+        // height: 40,
+        width: 80,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -35,7 +39,6 @@ export default StyleSheet.create({
         alignContent: 'center',
         alignItems: 'flex-start',
         backgroundColor: '#e6b91e',
-        width: 100,
         borderRadius: 24,
     },
     imdbrating: {
@@ -45,6 +48,7 @@ export default StyleSheet.create({
         marginTop: 2
     },
     imdbimage: {
+        marginLeft: 5,
         flex: 1,
         height: 20,
         width: 20,
