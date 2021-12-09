@@ -39,8 +39,10 @@ export default function MovieDescription({realeaseLabel, movie}) {
                 <Text style={[styles.text,{color:certificate.color}]}>age restriction: {certificate.is}</Text> 
                 :
                 <></>}
-            <Text style={[styles.text,]}>director: {moviedirectors}</Text>
-            <Text style={[styles.text,]}>Lead actors: {movieactors}</Text>
+            {directorsarray.length > 0 ?
+                <Text style={[styles.text,]}>director: {moviedirectors}</Text> : <></>}
+            {actorsarray.length > 0 ?
+                <Text style={[styles.text,]}>Lead actors: {movieactors}</Text> : <></>}
             <View style={styles.genreContainer}>
                 {genres.map(genre => {
                     if (typeof genre === 'object') {
