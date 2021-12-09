@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import {  Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import styles from './styles';
 import Genre from '../Genre/Genre';
@@ -9,7 +9,8 @@ export default function MovieDescription({realeaseLabel, movie}) {
     const { year, durationMinutes, plot, genres} = movie;
     const releaseDate = movie['release-dateIS'];
     const directorsarray = movie['directors_abridged'];
-    const actorsarray = movie['actors_abridged']
+    const actorsarray = movie['actors_abridged'];
+    const certificate = movie['certificate'];
     var moviedirectors = '';
     for (var i = 0; i < directorsarray.length; i++){
         moviedirectors += directorsarray[i].name;
@@ -34,6 +35,10 @@ export default function MovieDescription({realeaseLabel, movie}) {
                 <Text style={[styles.text,]}>Duration: {durationMinutes} minutes</Text>
                 : <></>
             }
+            {certificate ?
+                <Text style={[styles.text,{color:certificate.color}]}>age restriction: {certificate.is}</Text> 
+                :
+                <></>}
             <Text style={[styles.text,]}>director: {moviedirectors}</Text>
             <Text style={[styles.text,]}>Lead actors: {movieactors}</Text>
             <View style={styles.genreContainer}>

@@ -1,9 +1,10 @@
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { green } from '../../styles/colors';
 import styles from './styles';
-import imdblogo from '../../resources/Images/imdb.png';
 
 import MoviePoster from '../MoviePoster/MoviePoster';
 import Genre from '../Genre/Genre';
@@ -12,6 +13,7 @@ import ImdbRating from '../ImdbRating/ImdbRating';
 export default function MovieItem({onPress, movie}) {
     const {poster, title, year, genres, } = movie;
     const releaseDate = movie['release-dateIS'];
+    // check if the movie has a imdb rating
     const rating = movie.hasOwnProperty('ratings');
 
     return (
