@@ -1,13 +1,17 @@
 /* eslint-disable indent */
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import reducers from './src/reducers';
+
 import AppContainer from './src/routes/AppContainer';
 
 export default function App() {
     return (
-        
+        <Provider store={createStore(reducers, applyMiddleware(thunk))}>
             <AppContainer/>
+        </Provider>
         
     );
 }
