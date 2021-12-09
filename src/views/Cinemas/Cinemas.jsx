@@ -6,7 +6,7 @@ import { getCinemas } from '../../actions/cinemasActions';
 import { getMovies, changeCurrentMovies } from '../../actions/moviesActions';
 import { changeCurrentCinema } from '../../actions/cinemaActions';
 import Spinner from '../../components/Spinner/Spinner';
-import CinemalistItem from '../../components/cinemalistItem/cinemalistItem';
+import CinemalistItem from '../../components/CinemaListItem/CinemaListItem';
 import styles from './styles';
 
 export default function Cinemas({navigation}) {
