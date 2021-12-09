@@ -5,22 +5,26 @@ export default StyleSheet.create({
         backgroundColor: itemBackground,
         borderRadius: 10,
         padding: 20,
-        flexDirection: 'row',
+        flexDirection: 'column',
         marginBottom: 20,
     },
     text: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 24,
+        fontSize: 20,
         marginBottom: 10,
+        paddingRight: 30,
     },
     subcontainer: {
         marginLeft: 20,
         flex: 1,
+        justifyContent:'center'
     },
     genreContainer: {
+        marginTop: 20,
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
+        justifyContent: 'flex-start'
     }
 });

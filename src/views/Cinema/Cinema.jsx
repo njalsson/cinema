@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, ScrollView, View, Linking, TouchableOpacity} from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeCurrentMovie } from '../../actions/moviesActions';
 
 import styles from './styles';
 
@@ -22,10 +23,13 @@ const TextItem = ({label, children}) => {
 
 export default function Cinema({navigation, route}) {
     const cinema = useSelector(state => state.cinema);
+    const movies = useSelector(state => state.movies.currentMovies);
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        
         navigation.setOptions({title: cinema.name});
     }, []);
+
     return (
         <ScrollView bounces={false}>
             <View style={styles.container}>
@@ -50,8 +54,16 @@ export default function Cinema({navigation, route}) {
             <View style={styles.movies}>
                 <Text style={[styles.text, {color: gray}]}>In cinema:</Text>
 
-                
-                <MovieItem onPress={() => navigation.navigate('CinemaMovie')}/>
+                {movies.map(movie => {
+                    return <MovieItem 
+                        movie={movie} 
+                        key={movie.id}
+                        onPress={() => {
+                            dispatch(changeCurrentMovie(movie));
+                            navigation.navigate('CinemaMovie');
+                        }}
+                    />
+                })}
             </View>
         </ScrollView>
     );

@@ -1,4 +1,4 @@
-import ApiService from '../services/ApiService'
+import ApiService from '../services/ApiService';
 import * as constants from '../constants';
 
 export const getCinemas = () => {
@@ -18,7 +18,21 @@ export const getCinemas = () => {
     };
 };
 
-const getCinemasSuccess = cinemas => ({
-    type: constants.GET_CINEMAS,
-    payload: cinemas,
-});
+const getCinemasSuccess = cinemas => {
+    cinemas.sort(compare);
+    return {
+        type: constants.GET_CINEMAS,
+        payload: cinemas,
+    };};
+
+function compare( a, b ) {
+    const aname = a.name.toLowerCase();
+    const bname = b.name.toLowerCase();
+    if ( aname < bname ){
+        return -1;
+    }
+    if ( aname > bname ){
+        return 1;
+    }
+    return 0;
+}

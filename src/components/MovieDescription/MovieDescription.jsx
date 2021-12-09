@@ -1,21 +1,29 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 import styles from './styles';
 import Genre from '../Genre/Genre';
-export default function MovieDescription({realeaseLabel}) {
+export default function MovieDescription({realeaseLabel, movie}) {
+    const {title, year, durationMinutes, plot, genres} = movie;
+    const releaseDate = movie["release-dateIS"];
+
     return (
         <View style={styles.container}>
-            <Text style={[styles.text, {marginBottom: 10}]}>The long plot of the home alone movie, this is very long. Hopefully you can read it all.</Text>
-            <Text style={styles.text}>{realeaseLabel} 1990</Text>
-            <Text style={[styles.text, {marginBottom: 10}]}>Duration: 133 minutes</Text>
+            <Text style={[styles.text, {marginBottom: 10}]}>{plot}</Text>
+            <Text style={styles.text}>{realeaseLabel} {releaseDate ? releaseDate : year}</Text>
+            {durationMinutes ? 
+                <Text style={[styles.text,]}>Duration: {durationMinutes} minutes</Text>
+                : <></>
+            }
             <View style={styles.genreContainer}>
-                <Genre genre="Family-friendly"/>
-                <Genre genre="comedy"/>
-                <Genre genre="action"/>
-                <Genre genre="christmas"/>
+                {genres.map(genre => {
+                    if (typeof genre === 'object') {
+
+                        return <Genre genre={genre.Name} key={genre.ID}/>;
+                    }
+                })}
             </View>
         </View>
-    )
+    );
 }
 

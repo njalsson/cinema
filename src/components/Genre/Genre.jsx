@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
         padding: 5,
         paddingRight: 15,
         paddingLeft: 15,
-        marginBottom: 5,
-        marginRight: 5,
+        marginBottom: 10,
+        marginRight: 10,
         backgroundColor: navigationBackground,
         alignItems: 'center',
         justifyContent: 'center',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: gray,
         fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     genreContainer: {
 

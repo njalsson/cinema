@@ -13,6 +13,7 @@ export default StyleSheet.create({
         fontSize: 16,
     },
     genreContainer: {
+        marginTop: 20,
         flexWrap: 'wrap',
         flexDirection: 'row'
     }
