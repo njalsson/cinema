@@ -9,6 +9,13 @@ import styles from './styles';
 
 export default function CinemaMovie({navigation}) {
     const movie = useSelector(state => state.upcomingMovie);
+    let trailer = false;
+    
+    if (movie.trailers) {
+        if (movie.trailers[0].results.length > 0) {
+            trailer = true;
+        }
+    }
 
     useEffect(() => {
         navigation.setOptions({title: movie.title});
@@ -17,7 +24,7 @@ export default function CinemaMovie({navigation}) {
     return (
         <MovieModal realeaseLabel="Release date:" movie={movie}>
 
-            {movie.trailers.length > 0 ?
+            {trailer ?
                 <View style={{width: '100%', marginTop: 20,}}>
                     <Text style={styles.label}>Watch trailer:</Text>
                     <WebView
